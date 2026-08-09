@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+:root {
+  --canvas: #f4f5f7;
+  --canvas-2: #eaecf1;
+  --ink: #12141c;
+  --ink-soft: #565b6b;
+  --select: #2f6fed;
+  --select-soft: #dce7fe;
+  --amber: #f5a623;
+  --mint: #3fb27f;
+  --line: #d6d9e0;
+}
+
+@theme inline {
+  --color-canvas: var(--canvas);
+  --color-canvas-2: var(--canvas-2);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-select: var(--select);
+  --color-select-soft: var(--select-soft);
+  --color-amber: var(--amber);
+  --color-mint: var(--mint);
+  --color-line: var(--line);
+
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+  --font-mono: var(--font-mono);
+
+  --animate-accordion-down: accordion-down 0.25s ease-out;
+  --animate-accordion-up: accordion-up 0.25s ease-out;
+
+  @keyframes accordion-down {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+    }
+  }
+  @keyframes accordion-up {
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+    to {
+      height: 0;
+    }
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  cursor: none;
+}
+
+::selection {
+  background: var(--select-soft);
+  color: var(--ink);
+}
+
+@media (hover: none) {
+  body {
+    cursor: auto;
+  }
+  #inspector-ui {
+    display: none;
+  }
+}
