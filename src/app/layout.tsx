@@ -1,23 +1,32 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import { Oswald, Pacifico, Montserrat, Ubuntu } from 'next/font/google';
 
-const spaceGrotesk = Space_Grotesk({
-  variable: "--font-display",
-  subsets: ["latin"],
-  weight: ["500", "600", "700"],
+// 1. Bold Condensed Sans-Serif (Matches "TENTANG")
+const oswald = Oswald({
+  subsets: ['latin'],
+  weight: ['700'],
+  variable: '--font-oswald',
 });
 
-const inter = Inter({
-  variable: "--font-body",
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
+// 2. Script / Handwritten Style (Matches "Galaksi")
+const pacifico = Pacifico({
+  subsets: ['latin'],
+  weight: ['400'],
+  variable: '--font-pacifico',
 });
 
-const jetbrainsMono = JetBrains_Mono({
-  variable: "--font-mono",
-  subsets: ["latin"],
-  weight: ["400", "500"],
+// 3. Clean Modern Sans-Serif (Matches "CHALLENGE UI")
+const montserrat = Montserrat({
+  subsets: ['latin'],
+  weight: ['400', '600'],
+  variable: '--font-montserrat',
+});
+
+const ubuntu = Ubuntu({
+  subsets: ['latin'],
+  weight: ['400', '500', '700'],
+  variable: '--font-ubuntu',
 });
 
 export const metadata: Metadata = {
@@ -30,9 +39,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} h-full antialiased`}
+      className={`${oswald.variable} ${pacifico.variable} ${montserrat.variable} ${ubuntu.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-canvas text-ink font-body">
+      <body className="min-h-full">
         {children}
       </body>
     </html>
