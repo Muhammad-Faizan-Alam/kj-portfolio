@@ -1,8 +1,8 @@
 'use client'
 
 import { Lottie } from 'lottie-react'
-import InfoTracker from './infoTracker'
-import userAnimation from '../../public/user.json'
+import InfoTracker from '../infoTracker'
+import userAnimation from '../../../public/user.json'
 
 const ABOUT_BENEFITS = [
   'Full ownership from design to launch — no hand-holding needed',
@@ -26,13 +26,13 @@ const About = () => {
             <div className="absolute inset-0 bg-radial-[circle_at_center] from-white/15 to-transparent to-65%" aria-hidden="true" />
             <Lottie src={userAnimation} loop autoplay className="relative z-10 h-full w-full" />
           </div>
-          <span className="absolute -bottom-5 -right-3 rounded-full border border-white/15 bg-olive-800 px-4 py-2 text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-white/75 shadow-lg sm:-right-5">
+          {/* <span className="absolute -bottom-5 -right-3 rounded-full border border-white/15 bg-olive-800 px-4 py-2 text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-white/75 shadow-lg sm:-right-5">
             Since 2022
-          </span>
+          </span> */}
         </div>
 
         <div className="order-1 lg:order-2">
-          <p className="mb-5 text-sm font-semibold uppercase tracking-[0.32em] text-white/55">About me</p>
+          <p className="mb-5 text-sm font-ubuntu font-semibold uppercase tracking-[0.32em] text-white/55">About me</p>
           <h2 id="about-title" className="max-w-3xl font-oswald text-[clamp(2.8rem,6vw,6.5rem)] font-bold uppercase leading-[0.92] tracking-[-0.04em] text-white">
             Built with care. Designed to perform.
           </h2>

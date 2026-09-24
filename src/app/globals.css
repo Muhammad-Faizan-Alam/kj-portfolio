@@ -16,6 +16,14 @@
 	font-family: var(--font-ubuntu);
 }
 
+.font-space-grotesk {
+	font-family: var(--font-space-grotesk);
+}
+
+.font-inter {
+	font-family: var(--font-inter);
+}
+
 @keyframes hero-rise {
 	from {
 		opacity: 0;

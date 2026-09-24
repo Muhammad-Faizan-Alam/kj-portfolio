@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Oswald, Pacifico, Montserrat, Ubuntu } from 'next/font/google';
+import { Inter, Oswald, Pacifico, Montserrat, Space_Grotesk, Ubuntu } from 'next/font/google';
 
 // 1. Bold Condensed Sans-Serif (Matches "TENTANG")
 const oswald = Oswald({
@@ -29,6 +29,18 @@ const ubuntu = Ubuntu({
   variable: '--font-ubuntu',
 });
 
+const spaceGrotesk = Space_Grotesk({
+  subsets: ['latin'],
+  weight: ['500', '600', '700'],
+  variable: '--font-space-grotesk',
+});
+
+const inter = Inter({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-inter',
+});
+
 export const metadata: Metadata = {
   title: "Ari Voss — WordPress, Shopify & Webflow developer",
   description:
@@ -39,7 +51,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${oswald.variable} ${pacifico.variable} ${montserrat.variable} ${ubuntu.variable} h-full antialiased`}
+      className={`${oswald.variable} ${pacifico.variable} ${montserrat.variable} ${ubuntu.variable} ${spaceGrotesk.variable} ${inter.variable} h-full antialiased`}
     >
       <body className="min-h-full">
         {children}

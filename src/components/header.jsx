@@ -121,7 +121,7 @@ const Header = () => {
           >
             <Link
               href={href}
-              className="header-link font-montserrat flex h-10 cursor-pointer items-center justify-center whitespace-nowrap rounded-full px-2 text-sm font-semibold text-olive-600 md:h-11 md:px-3 md:text-sm lg:h-12 lg:px-4 lg:text-base"
+              className="header-link font-ubuntu flex h-10 cursor-pointer items-center justify-center whitespace-nowrap rounded-full px-2 text-sm font-semibold text-olive-600 md:h-11 md:px-3 md:text-sm lg:h-12 lg:px-4 lg:text-base"
               aria-label={name}
               onClick={closeMobileHeader}
             >
@@ -140,7 +140,7 @@ const Header = () => {
               href={href}
               target="_blank"
               rel="noreferrer"
-              className="header-link font-montserrat flex h-10 w-auto cursor-pointer items-center justify-center whitespace-nowrap rounded-full bg-olive-800 px-3 text-sm font-semibold text-white max-md:mx-auto max-md:w-[85%] md:h-11 md:px-4 md:text-base lg:h-12 lg:px-5"
+              className="header-link font-ubuntu flex h-10 w-auto cursor-pointer items-center justify-center whitespace-nowrap rounded-full bg-olive-800 px-3 text-sm font-semibold text-white max-md:mx-auto max-md:w-[85%] md:h-11 md:px-4 md:text-base lg:h-12 lg:px-5"
               aria-label={name}
               onClick={closeMobileHeader}
             >
