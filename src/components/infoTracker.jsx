@@ -12,7 +12,7 @@ const TICKER_LINES = [
   'Helping businesses and agencies get professional, responsive WordPress websites.',
 ];
 
-export default function InfoTicker() {
+export default function InfoTicker({ items = TICKER_LINES }) {
   const containerRef = useRef(null);
   const textRef = useRef(null);
 
@@ -23,7 +23,7 @@ export default function InfoTicker() {
 
       const tl = gsap.timeline({ repeat: -1 });
 
-      TICKER_LINES.forEach((line) => {
+      items.forEach((line) => {
         tl.to(el, { y: -16, opacity: 0, duration: 0.4, ease: 'power2.in' })
           .call(() => {
             el.textContent = line;
@@ -42,18 +42,13 @@ export default function InfoTicker() {
   return (
     <div
       ref={containerRef}
-      className=""
     >
-      {/* <div className="md:hidden flex items-center gap-0 text-xs font-semibold">
-        <Image src="/logo/f.svg" alt="Logo" width={20} height={20} className="rounded-full" />
-        <h1>Muhammad Faizan Alam</h1>
-      </div> */}
-      <div className="md:h-8 h-12 text-center overflow-hidden">
+      <div className="md:h-8 h-12 overflow-hidden text-olive-900">
         <p
           ref={textRef}
           className="md:text-[20px] text-sm font-semibold font-georama italic text-accent"
         >
-          {TICKER_LINES[0]}
+          {items[0]}
         </p>
       </div>
     </div>
