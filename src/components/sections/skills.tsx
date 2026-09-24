@@ -136,7 +136,7 @@ const Skills = () => {
       <div className="mx-auto grid max-w-375 gap-14 lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:gap-20">
         <div>
           <p className="mb-5 text-sm font-ubuntu font-semibold uppercase tracking-[0.32em] text-olive-700">What I do</p>
-          <h2 id="skills-title" className="max-w-xl font-oswald text-[clamp(2.8rem,6vw,6.5rem)] font-bold uppercase leading-[0.92] tracking-[-0.04em] text-olive-900">Core Skills</h2>
+          <h2 id="skills-title" className="max-w-xl font-oswald text-[clamp(2.8rem,6vw,6.5rem)] font-bold uppercase leading-[0.92] tracking-tighter text-olive-900">Core Skills</h2>
           <div className="mt-10 space-y-8">
             {SKILL_GROUPS.map((group) => (
               <div key={group.title}>
