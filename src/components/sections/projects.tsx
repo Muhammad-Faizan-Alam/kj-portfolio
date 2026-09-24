@@ -70,7 +70,7 @@ const Projects = () => {
             <p className="mb-5 font-ubuntu text-sm font-semibold uppercase tracking-[0.32em] text-white/55">Selected work</p>
             <h2 id="projects-title" className="max-w-3xl font-oswald text-[clamp(2.8rem,6vw,6.5rem)] font-bold uppercase leading-[0.92] tracking-tighter text-white">Projects</h2>
           </div>
-          <p className="max-w-xs font-ubuntu text-sm leading-6 text-white/55 sm:text-right">Nine builds, each with its own rhythm, audience, and reason to exist.</p>
+          <p className="max-w-xs font-ubuntu text-sm leading-6 text-olive-700 sm:text-right">Nine builds, each with its own rhythm, audience, and reason to exist.</p>
         </div>
 
         <div className="relative mx-auto h-[clamp(34rem,70vh,54rem)] w-full max-w-[80vw] min-w-[min(100%,22rem)]" aria-label="Project cards. Select a card to view the next project.">
