@@ -1,11 +1,17 @@
-import InspectorCursor from "@/components/inspector-cursor";
-import HomeShell from "@/components/home-shell";
+import Hero from '../components/hero'
+import About from '../components/sections/about'
+import Skills from '../components/sections/skills'
+import Projects from '../components/sections/projects'
 
-export default function Home() {
+const page = () => {
   return (
-    <>
-      <InspectorCursor />
-      <HomeShell />
-    </>
-  );
+    <main>
+      <Hero />
+      <About />
+      <Skills />
+      <Projects />
+    </main>
+  )
 }
+
+export default page
