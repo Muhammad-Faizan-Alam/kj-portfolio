@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title>Kashaf Jabeen</title>
+  <defs>
+    <linearGradient id="bg" x1="8" y1="8" x2="56" y2="56" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#4f5d3f" />
+      <stop offset="1" stop-color="#273020" />
+    </linearGradient>
+    <linearGradient id="mark" x1="20" y1="14" x2="48" y2="50" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#f0efff" />
+      <stop offset="1" stop-color="#b5a9ec" />
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="18" fill="url(#bg)" />
+  <path d="M20 14v36M20 33 43 14M29 31l16 19" fill="none" stroke="url(#mark)" stroke-linecap="round" stroke-linejoin="round" stroke-width="7" />
+  <circle cx="49" cy="15" r="3" fill="#d6e7c8" />
+</svg>

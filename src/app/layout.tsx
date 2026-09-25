@@ -42,9 +42,19 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Ari Voss — WordPress, Shopify & Webflow developer",
+  title: "Kashaf Jabeen | WordPress Developer",
   description:
-    "I design and build production websites on WordPress, Shopify and Webflow — no plugin bloat, no half-finished sections.",
+    "Kashaf Jabeen designs and builds fast, responsive WordPress websites for businesses, startups, agencies, and growing brands.",
+  icons: {
+    icon: '/favicon.svg',
+    shortcut: '/favicon.svg',
+    apple: '/favicon.svg',
+  },
+  openGraph: {
+    title: 'Kashaf Jabeen | WordPress Developer',
+    description: 'Fast, thoughtful WordPress websites designed and built for businesses, startups, agencies, and growing brands.',
+    type: 'website',
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
