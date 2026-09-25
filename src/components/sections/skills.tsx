@@ -6,6 +6,7 @@ import gsap from 'gsap'
 import { Draggable } from 'gsap/Draggable'
 import { InertiaPlugin } from 'gsap/InertiaPlugin'
 import { ArrowLeft, ArrowUp } from 'lucide-react'
+import Link from 'next/link'
 
 type SkillGroup = {
   title: string
@@ -146,7 +147,7 @@ const Skills = () => {
   }, { scope: sectionRef })
 
   return (
-    <section ref={sectionRef} id="core-skills" className="relative overflow-hidden bg-linear-0 from-olive-500 to-olive-200 px-4 py-24 text-olive-900 sm:px-10 sm:py-32 lg:px-16" aria-labelledby="skills-title">
+    <section ref={sectionRef} id="core-skills" className="relative overflow-hidden bg-linear-0 from-olive-500 to-olive-200 px-4 py-10 text-olive-900 sm:px-10 sm:py-16 lg:px-16" aria-labelledby="skills-title">
       <div className="mx-auto grid max-w-375 gap-14 lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:gap-20">
         <div>
           <p className="mb-5 text-sm font-ubuntu font-semibold uppercase tracking-[0.32em] text-olive-700">What I do</p>
@@ -165,7 +166,7 @@ const Skills = () => {
           </div>
         </div>
 
-        <div ref={cardAreaRef} className="relative h-auto space-y-5 md:h-145 md:space-y-0 lg:h-162.5" aria-label="Core skill areas">
+        <div ref={cardAreaRef} className="relative h-auto space-y-5 md:h-145 lg:mt-10 md:space-y-0 lg:h-162.5" aria-label="Core skill areas">
           {SKILL_CARDS.map((card, index) => (
             <article
               key={card.title}
@@ -185,7 +186,11 @@ const Skills = () => {
               </div>
               <div className="absolute bottom-0 w-full flex items-center justify-between bg-white/80 px-7 py-4 font-ubuntu text-xs font-bold uppercase tracking-[0.18em] text-olive-800 sm:px-8">
                 <span>View Skills</span>
-                <button type="button" tabIndex={-1} aria-hidden="true" className="flex size-9 items-center justify-center rounded-full bg-olive-800 text-lg text-white transition-transform duration-300 group-hover:rotate-[-25deg]"><span aria-hidden="true"><ArrowLeft className="hidden lg:block" /><ArrowUp className="lg:hidden block" /></span></button>
+                <Link href="#core-skills" className="flex size-9 items-center justify-center rounded-full bg-olive-800 text-lg text-white transition-transform duration-300 group-hover:rotate-[-25deg]">
+                  <span aria-hidden="true">
+                    <ArrowLeft className="hidden lg:block" /><ArrowUp className="lg:hidden block" />
+                  </span>
+                </Link>
               </div>
             </article>
           ))}

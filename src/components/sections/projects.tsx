@@ -63,7 +63,7 @@ const Projects = () => {
   }, { scope: sectionRef })
 
   return (
-    <section ref={sectionRef} id="projects" className="relative overflow-hidden bg-linear-180 from-olive-500 to-olive-200 px-4 py-24 text-olive-900 sm:px-10 sm:py-32 lg:px-16" aria-labelledby="projects-title">
+    <section ref={sectionRef} id="projects" className="relative overflow-hidden bg-linear-180 from-olive-500 to-olive-200 px-4 py-10 pb-48! text-olive-900 sm:px-10 sm:py-16 lg:px-16" aria-labelledby="projects-title">
       <div className="mx-auto max-w-375">
         <div className="mb-12 flex flex-col justify-between gap-6 sm:mb-16 sm:flex-row sm:items-end">
           <div>
