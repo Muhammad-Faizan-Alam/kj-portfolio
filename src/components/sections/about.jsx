@@ -13,7 +13,7 @@ const ABOUT_BENEFITS = [
 
 const About = () => {
   return (
-    <section id="about-me" className="relative overflow-hidden bg-linear-0 from-olive-200 to-olive-500 px-4 py-24 text-[#f0efff] sm:px-10 sm:py-32 lg:px-16" aria-labelledby="about-title">
+    <section id="about-me" className="relative overflow-hidden bg-linear-0 from-olive-200 to-olive-500 px-4 py-10 text-[#f0efff] sm:px-10 sm:py-16 lg:px-16" aria-labelledby="about-title">
       <div className="absolute inset-0 opacity-20" aria-hidden="true">
         <div className="absolute -left-32 top-1/3 size-96 rounded-full bg-olive-300/20 blur-3xl" />
         <div className="absolute -right-40 bottom-0 size-128 rounded-full bg-olive-700/30 blur-3xl" />

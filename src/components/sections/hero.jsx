@@ -1,5 +1,5 @@
 import { ArrowRightIcon } from 'lucide-react'
-import Header from '../components/header'
+import Header from '../header'
 import Link from 'next/link'
 
 const Hero = () => {
