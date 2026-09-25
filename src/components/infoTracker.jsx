@@ -43,10 +43,10 @@ export default function InfoTicker({ items = TICKER_LINES }) {
     <div
       ref={containerRef}
     >
-      <div className="md:h-8 h-12 overflow-hidden text-olive-900">
+      <div className="min-h-18 w-full min-w-0 overflow-hidden text-olive-900 sm:min-h-8">
         <p
           ref={textRef}
-          className="md:text-[20px] text-sm font-semibold font-georama italic text-accent"
+          className="break-words text-sm font-semibold italic leading-6 text-accent sm:text-[20px] sm:leading-8"
         >
           {items[0]}
         </p>

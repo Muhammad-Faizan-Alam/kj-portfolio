@@ -73,21 +73,28 @@ const Projects = () => {
           <p className="max-w-xs font-ubuntu text-sm leading-6 text-olive-700 sm:text-right">Nine builds, each with its own rhythm, audience, and reason to exist.</p>
         </div>
 
-        <div className="relative mx-auto h-[clamp(34rem,70vh,54rem)] w-full max-w-[80vw] min-w-[min(100%,22rem)]" aria-label="Project cards. Select a card to view the next project.">
+        <div className="projects-stack relative mx-auto w-full sm:w-[80vw]" aria-label="Project cards. Select a card to view the next project.">
           {PROJECTS.map((project, index) => (
             <article key={project.name} ref={(element) => { cardRefs.current[index] = element }} className="group absolute inset-0 grid cursor-pointer grid-rows-[minmax(12rem,35%)_1fr] overflow-hidden rounded-[1.25rem] border border-white/70 bg-white shadow-[0_28px_70px_rgba(39,48,32,0.18)] transition-shadow duration-300 hover:shadow-[0_34px_85px_rgba(39,48,32,0.25)] md:grid-cols-2 md:grid-rows-1" style={{ backgroundColor: project.accent }}>
-              <div className={`relative min-h-64 overflow-hidden md:min-h-0 ${index % 2 === 0 ? 'md:order-1' : 'md:order-2'}`}>
+              <div className={`relative z-0 min-h-64 overflow-hidden md:min-h-0 ${index % 2 === 0 ? 'md:order-1' : 'md:order-2'}`}>
                 <div className="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105" style={{ backgroundImage: `url(${project.image})` }} role="img" aria-label={`${project.name} project preview`} />
                 <div className="absolute inset-0 bg-linear-to-t from-black/35 via-transparent to-transparent" />
                 <span className="absolute left-5 top-5 rounded-full bg-white/85 px-3 py-1 font-ubuntu text-xs font-bold tracking-[0.18em] text-olive-900 backdrop-blur-sm sm:left-8 sm:top-8">{project.number}</span>
               </div>
-              <div className={`flex flex-col justify-between p-6 sm:p-10 lg:p-14 ${index % 2 === 0 ? 'md:order-2' : 'md:order-1'}`}>
+              <div className={`relative z-10 min-h-0 overflow-y-auto flex flex-col justify-between p-5 pt-10 sm:p-8 sm:pt-8 lg:p-14 ${index % 2 === 0 ? 'md:order-2' : 'md:order-1'}`}>
                 <div>
-                  <div className="mb-8 flex items-start justify-between gap-4"><span className="font-ubuntu text-xs font-bold uppercase tracking-[0.2em] text-olive-700/75">Website build</span><Link href={project.url} target="_blank" rel="noreferrer" aria-label={`Open ${project.name} in a new tab`} onClick={(event) => event.stopPropagation()} className="flex size-11 shrink-0 items-center justify-center rounded-full border border-olive-900/20 text-olive-900 transition-colors hover:bg-olive-900 hover:text-white"><ExternalLink size={18} /></Link></div>
+                  <div className="md:mb-8 mb-2 flex items-start justify-between gap-4">
+                    <span className="font-ubuntu text-xs font-bold uppercase tracking-[0.2em] text-olive-700/75">
+                      Website build
+                    </span>
+                    <Link href={project.url} target="_blank" rel="noreferrer" aria-label={`Open ${project.name} in a new tab`} onClick={(event) => event.stopPropagation()} className="flex size-11 shrink-0 items-center justify-center rounded-full border border-olive-900/20 text-olive-900 transition-colors hover:bg-olive-900 hover:text-white">
+                      <ExternalLink size={18} />
+                    </Link>
+                  </div>
                   <h3 className="max-w-lg font-oswald text-[clamp(3rem,6vw,6.5rem)] font-bold uppercase leading-[0.88] tracking-tighter text-olive-900">{project.name}</h3>
                   <p className="mt-6 max-w-md font-ubuntu text-sm leading-7 text-olive-900/75 sm:text-base">{project.description}</p>
                 </div>
-                <div className="mt-10 border-t border-olive-900/15 pt-5"><p className="mb-3 font-ubuntu text-[0.65rem] font-bold uppercase tracking-[0.22em] text-olive-700/75">Tools used</p><div className="flex flex-wrap gap-2">{project.tools.map(({ label, icon: Icon }) => <span key={label} className="inline-flex items-center gap-2 rounded-full border border-olive-900/15 bg-white/35 px-3 py-2 font-ubuntu text-xs font-medium text-olive-900"><Icon size={16} aria-hidden="true" />{label}</span>)}</div></div>
+                <div className="md:mt-10 border-t border-olive-900/15 pt-5"><p className="mb-3 font-ubuntu text-[0.65rem] font-bold uppercase tracking-[0.22em] text-olive-700/75">Tools used</p><div className="flex flex-wrap gap-2">{project.tools.map(({ label, icon: Icon }) => <span key={label} className="inline-flex items-center gap-2 rounded-full border border-olive-900/15 bg-white/35 px-3 py-2 font-ubuntu text-xs font-medium text-olive-900"><Icon size={16} aria-hidden="true" />{label}</span>)}</div></div>
               </div>
             </article>
           ))}

@@ -61,6 +61,16 @@
 	text-shadow: 0.06em 0.06em 0 rgba(238, 236, 255, 0.55);
 }
 
+.projects-stack {
+	height: clamp(40rem, 125vw, 54rem);
+}
+
+@media (min-width: 640px) {
+	.projects-stack {
+		height: clamp(38rem, 70vh, 54rem);
+	}
+}
+
 @media (prefers-reduced-motion: reduce) {
 	.hero-reveal {
 		animation: none;

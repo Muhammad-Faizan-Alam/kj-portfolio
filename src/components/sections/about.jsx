@@ -43,7 +43,7 @@ const About = () => {
           <div className="mt-2 pt-2 font-ubuntu">
             <p className="mb-4 text-sm font-semibold uppercase tracking-[0.22em] text-olive-700">What I bring to every project:</p>
             <div className="flex items-start gap-3 rounded-2xl border border-white/55 bg-white/5 px-2 py-2 shadow-lg sm:px-5">
-              <span className="mt-2 size-2.5 shrink-0 rounded-full bg-olive-700" aria-hidden="true" />
+              <span className="md:block hidden mt-2 size-2.5 shrink-0 rounded-full bg-olive-700" aria-hidden="true" />
               <InfoTracker items={ABOUT_BENEFITS} />
             </div>
           </div>

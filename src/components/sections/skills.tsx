@@ -5,7 +5,7 @@ import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import { Draggable } from 'gsap/Draggable'
 import { InertiaPlugin } from 'gsap/InertiaPlugin'
-import { ArrowLeft } from 'lucide-react'
+import { ArrowLeft, ArrowUp } from 'lucide-react'
 
 type SkillGroup = {
   title: string
@@ -17,6 +17,7 @@ type SkillCard = {
   description: string
   tilt: number
   position: { left: number; top: number }
+  positionClass: string
   tint: string
 }
 
@@ -41,6 +42,7 @@ const SKILL_CARDS: SkillCard[] = [
     description: 'I design and build custom WordPress websites from the ground up, from theme customization and tailored functionality to full WooCommerce stores. Every site is fully responsive and kept healthy afterward with ongoing maintenance.',
     tilt: -8,
     position: { left: 4, top: 26 },
+    positionClass: 'md:left-[1%] md:top-[26%] md:rotate-[-8deg]',
     tint: 'from-amber-100/90 to-amber-50/80',
   },
   {
@@ -48,6 +50,7 @@ const SKILL_CARDS: SkillCard[] = [
     description: 'I work across the major WordPress builders, including Elementor, Bricks Builder, Oxygen, Breakdance, Avada, Thrive Architect, and native Gutenberg. I choose the right tool for each project so the site stays fast, flexible, and easy for you to edit.',
     tilt: 4,
     position: { left: 31, top: 4 },
+    positionClass: 'md:left-[27%] md:top-[4%] md:rotate-[4deg]',
     tint: 'from-emerald-100/90 to-lime-50/80',
   },
   {
@@ -55,6 +58,7 @@ const SKILL_CARDS: SkillCard[] = [
     description: 'I speed up slow websites, debug stubborn WordPress issues, and migrate sites safely to new hosts. I also harden security and apply on-page and technical SEO basics so your site is fast, secure, and easy to find.',
     tilt: 6,
     position: { left: 53, top: 34 },
+    positionClass: 'md:left-[52%] md:top-[34%] md:rotate-[6deg]',
     tint: 'from-sky-100/90 to-cyan-50/80',
   },
 ]
@@ -78,6 +82,16 @@ const Skills = () => {
   const cardAreaRef = useRef<HTMLDivElement>(null)
   const cardRefs = useRef<(HTMLElement | null)[]>([])
   const highestZIndex = useRef(SKILL_CARDS.length)
+
+  const activateCard = (index: number) => {
+    const card = cardRefs.current[index]
+    if (!card) return
+
+    highestZIndex.current += 1
+    card.style.zIndex = String(highestZIndex.current)
+    gsap.to(card, { scale: 1.02, duration: 0.25, ease: DRAG_CONFIG.ease, overwrite: 'auto' })
+    gsap.to(card, { scale: 1, delay: 0.25, duration: 0.35, ease: DRAG_CONFIG.ease, overwrite: 'auto' })
+  }
 
   useGSAP(() => {
     const cardArea = cardAreaRef.current
@@ -151,7 +165,7 @@ const Skills = () => {
           </div>
         </div>
 
-        <div ref={cardAreaRef} className="relative h-auto space-y-6 md:h-162.5 md:space-y-0" aria-label="Core skill areas">
+        <div ref={cardAreaRef} className="relative h-auto space-y-5 md:h-145 md:space-y-0 lg:h-162.5" aria-label="Core skill areas">
           {SKILL_CARDS.map((card, index) => (
             <article
               key={card.title}
@@ -159,16 +173,19 @@ const Skills = () => {
               data-card-index={index}
               data-cursor="drag"
               tabIndex={0}
-              className={`group relative flex min-h-77.5 touch-pan-y select-text flex-col overflow-hidden rounded-4xl border border-white/70 bg-linear-to-br ${card.tint} shadow-[0_18px_30px_rgba(55,65,40,0.16),0_4px_8px_rgba(55,65,40,0.08)] outline-none transition-shadow duration-300 hover:shadow-[0_24px_42px_rgba(55,65,40,0.2),0_6px_12px_rgba(55,65,40,0.1)] focus-visible:ring-4 focus-visible:ring-olive-700/30 md:absolute md:block md:h-85 md:min-h-0 md:w-[56%] md:cursor-grab md:touch-none md:rounded-4xl md:transition-shadow md:duration-300`}
-              style={{ left: `${card.position.left}%`, top: `${card.position.top}%`, rotate: `${card.tilt}deg`, zIndex: index + 1 }}
+              aria-label={`${card.title}. Activate to bring this skill card forward.`}
+              onClick={() => activateCard(index)}
+              onKeyDown={(event) => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); activateCard(index) } }}
+              className={`group relative flex min-h-60 touch-pan-y select-text flex-col overflow-hidden rounded-4xl border border-white/70 bg-linear-to-br ${card.tint} shadow-[0_18px_30px_rgba(55,65,40,0.16),0_4px_8px_rgba(55,65,40,0.08)] outline-none transition-shadow duration-300 hover:shadow-[0_24px_42px_rgba(55,65,40,0.2),0_6px_12px_rgba(55,65,40,0.1)] focus-visible:ring-4 focus-visible:ring-olive-700/30 md:absolute md:block md:h-72 md:min-h-0 md:w-[48%] md:cursor-grab md:touch-none md:rounded-4xl lg:h-85 lg:w-[56%] ${card.positionClass}`}
+              style={{ zIndex: index + 1 }}
             >
-              <div className="flex flex-1 flex-col p-7 sm:p-8">
+              <div className="flex flex-1 flex-col p-7 sm:p-8 sm:mb-2 md:mb-0 mb-10">
                 <h3 className="max-w-[16rem] font-oswald text-2xl font-bold leading-[1.02] tracking-[-0.04em] text-olive-900 sm:text-3xl">{card.title}</h3>
                 <p className="mt-5 max-w-md font-ubuntu text-sm leading-6 text-olive-900/75">{card.description}</p>
               </div>
               <div className="absolute bottom-0 w-full flex items-center justify-between bg-white/80 px-7 py-4 font-ubuntu text-xs font-bold uppercase tracking-[0.18em] text-olive-800 sm:px-8">
                 <span>View Skills</span>
-                <button type="button" tabIndex={-1} aria-hidden="true" className="flex size-9 items-center justify-center rounded-full bg-olive-800 text-lg text-white transition-transform duration-300 group-hover:rotate-[-25deg]"><span aria-hidden="true"><ArrowLeft /></span></button>
+                <button type="button" tabIndex={-1} aria-hidden="true" className="flex size-9 items-center justify-center rounded-full bg-olive-800 text-lg text-white transition-transform duration-300 group-hover:rotate-[-25deg]"><span aria-hidden="true"><ArrowLeft className="hidden lg:block" /><ArrowUp className="lg:hidden block" /></span></button>
               </div>
             </article>
           ))}
